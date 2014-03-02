@@ -34,6 +34,9 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+
+	navigator.accelerometer.getCurrentAcceleration(app.onSuccess, app.onError);
+        alert('onDeviceReady2');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -45,5 +48,22 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+    // Run after successful transaction
+    // Let's display the accelerometer data
+    onSuccess: function (acceleration) {
+	    var accElement = document.getElementById('accelerometerData');
+		    
+	    accElement.innerHTML	=	
+		    'Acceleration X: ' + acceleration.x + '<br />' +
+		    'Acceleration Y: ' + acceleration.y + '<br />' +
+		    'Acceleration Z: ' + acceleration.z + '<br />' +
+		    'Timestamp: '      + acceleration.timestamp;
+    },
+    // Run if we face an error 
+    // obtaining the accelerometer data
+    onError: function (error) {
+	    // Handle any errors we may face
+	    alert(JSON.stringify(error));
     }
 };
