@@ -12,7 +12,6 @@
         PhoneGap Team
     </author>
     
-    <gap:plugin name="org.apache.cordova.devicemotion.AccelListener" />
     <gap:plugin name="org.apache.cordova.battery-status" />
 
     <feature name="http://api.phonegap.com/1.0/device" />
