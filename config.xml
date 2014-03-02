@@ -39,5 +39,4 @@
     <access origin="http://127.0.0.1*" />
 
     <gap:plugin name="org.apache.cordova.battery-status" />
-    <gap:plugin name="org.apache.cordova.devicemotion.AccelListener" />
 </widget>
